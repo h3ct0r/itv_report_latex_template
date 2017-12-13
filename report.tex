@@ -1,0 +1,290 @@
+% Report template for ITV projects
+% Based on ABNTEX2 and the thesis template created by Gabriel Garcia (gabrcg@gmail.com)
+% This report was created by Hector Azpurua (hector.azpurua@itv.org)
+
+\documentclass[
+	% -- opções da classe memoir --
+	12pt,				% tamanho da fonte
+	openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
+	oneside,			% para impressão em verso e anverso. Oposto a oneside
+	a4paper,			% tamanho do papel. 
+	% -- opções da classe abntex2 --
+	chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
+	%section=TITLE,		% títulos de seções convertidos em letras maiúsculas
+	%subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
+	%subsubsection=TITLE,% títulos de subsubseções convertidos em letras maiúsculas
+	% -- opções do pacote babel --
+	english,			% idioma adicional para hifenização
+	french,				% idioma adicional para hifenização
+	spanish,			% idioma adicional para hifenização
+	brazil				% o último idioma é o principal do documento
+]{abnt/abntex2itv_report}
+
+\usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
+\usepackage{lastpage}			% Usado pela Ficha catalográfica
+\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+\usepackage{color}				% Controle das cores
+\usepackage{graphicx}			
+\usepackage{microtype} 			% para melhorias de justificação
+\usepackage{supertabular}       % tabela na capa do documento
+\usepackage{booktabs}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{adjustbox}
+\usepackage{amssymb,amsmath,mathrsfs}
+\usepackage{algorithm,algpseudocode}
+\usepackage{pgfplots}
+\usepackage{tikz}
+\usepackage{lipsum}	
+\hypersetup{draft}
+\usepackage{titlesec}
+\usepackage{ragged2e}
+\usepackage{tocloft}
+\usepackage{etoolbox}
+
+\apptocmd{\thebibliography}{\justifying}{}{} 
+
+\renewcommand{\ABNTEXsectionfont}{\bfseries}
+
+\titlespacing*{\chapter}{0pt}{0pt}{0pt}
+\titlespacing*{\section}{0pt}{6pt}{6pt}
+\titlespacing*{\subsection}{0pt}{6pt}{6pt}
+\titlespacing*{\subsubsection}{0pt}{6pt}{6pt}
+
+% Declaracoes em Português
+\algrenewcommand\algorithmicend{\textbf{fim}}
+\algrenewcommand\algorithmicdo{\textbf{faça}}
+\algrenewcommand\algorithmicwhile{\textbf{enquanto}}
+\algrenewcommand\algorithmicfor{\textbf{para}}
+\algrenewcommand\algorithmicif{\textbf{se}}
+\algrenewcommand\algorithmicthen{\textbf{então}}
+\algrenewcommand\algorithmicelse{\textbf{senão}}
+\algrenewcommand\algorithmicreturn{\textbf{devolve}}
+\algrenewcommand\algorithmicfunction{\textbf{função}}
+
+% Rearranja os finais de cada estrutura
+\algrenewtext{EndWhile}{\algorithmicend\ \algorithmicwhile}
+\algrenewtext{EndFor}{\algorithmicend\ \algorithmicfor}
+\algrenewtext{EndIf}{\algorithmicend\ \algorithmicif}
+\algrenewtext{EndFunction}{\algorithmicend\ \algorithmicfunction}
+
+% Espaçamentos entre linhas e parágrafos 
+%O tamanho do parágrafo é dado por:
+\setlength{\parindent}{1.3cm}
+%Controle do espaçamento entre um parágrafo e outro:
+\setlength{\parskip}{0.2cm}  % tente também \onelineskip
+
+% ------------------------------------------------%
+% Informações de dados para CAPA e FOLHA DE ROSTO %
+% ------------------------------------------------%
+% \prodtecnica Número de produção técnica ITV
+% \titulo Titulo do relatorio Ex: "Relatorio do estado da arte"
+% \tiporelatorio Tipo de relatorio: "Final", "Parcial", "de Campo", etc.
+% \nomeprojeto Nome do projeto
+% \outrossubtitulos Outros subtitulos, pode ser deixado em branco
+% \autores Os autores do documento, separados por \\ Ex: Autor 1\\Autor 2\\Autor 3
+% \local Lugar onde foi realizado o documento
+% \data Data do documento em formato Mês/Ano
+% \classificacao Tipo de classificação do documento. Ex: (  ) Confidencial  (X) Restrita  (  )  Uso Interno  (  ) Pública
+% \revisao Versão do documento
+% \tabelacutter Informação biblioteca ITV
+% \palavraschave Palavras chave do documento. Ex: 1. Palavra chave. 2. Palavra chave. 3. Palavra chave.
+% \classificacaoassunto Número de Classificação do assunto da dissertação (Consultar biblioteca)
+% \parceirologo Logo do parceiro a ser colocado na portada do documento
+
+\prodtecnica{N001 / 2017}
+\titulo{Inserir título do relatorio}
+\tiporelatorio{(Tipo de relatorio)} 
+\nomeprojeto{(Nome do projeto)}
+\outrossubtitulos{Outros - identificar de acordo com a lista do CNPq e CAPES.} % opcional
+\autores{Autor 1\\Autor 2\\Autor 3}
+\local{Ouro Preto\\Minas Gerais, Brasil}
+\data{Mês/Ano}
+\classificacao{(  ) Confidencial  (X) Restrita  (  )  Uso Interno  (  ) Pública} % Marcar com X a classificação desejada
+\revisao{00}
+\tabelacutter{000} % Tabela de Cutter (Consultar biblioteca ITV)
+\palavraschave{1. Palavra chave. 2. Palavra chave. 3. Palavra chave.}
+\classificacaoassunto{000} % Número de Classificação do assunto da dissertação (Consultar biblioteca)
+\parceirologo{logos/verlab.png}
+
+% ----------------------------------------%
+% Configurações de aparência do PDF final %
+% ----------------------------------------%
+\definecolor{blue}{RGB}{41,5,195}
+\makeatletter
+\hypersetup{
+     	%pagebackref=true,
+		pdftitle={\@title}, 
+		pdfauthor={\@author},
+    	pdfsubject={\@title},
+	    pdfcreator={LaTeX with abnTeX2},
+		pdfkeywords={abnt}{latex}{abntex}{abntex2}{\imprimirpalavraschave}, 
+		colorlinks=true,       		% false: boxed links; true: colored links
+    	linkcolor=blue,          	% color of internal links
+    	citecolor=blue,        		% color of links to bibliography
+    	filecolor=magenta,      	% color of file links
+		urlcolor=blue,
+		bookmarksdepth=4
+}
+\makeatother
+
+\makeindex
+
+\begin{document}
+
+\frenchspacing % Retira espaço extra obsoleto entre as frases.
+
+\imprimircapa
+
+\imprimircatalografica % pode ser comentado
+
+% ---------------- %
+% Resumo executivo %
+% ---------------- %
+
+\ABNTEXchapterfont\large\textbf{RESUMO EXECUTIVO}
+
+\begin{flushleft}
+	
+\normalsize
+\justify
+\normalfont
+
+\lipsum[2] % Comentar e aidicionar resumo executivo aqui
+
+\end{flushleft}
+\clearpage
+
+% ----------------- %
+% Resumo e abstract %
+% ----------------- %
+
+\ABNTEXchapterfont\large\textbf{RESUMO}
+\begin{flushleft}
+    \normalsize
+    \justify
+    \normalfont
+
+	
+	\lipsum[2] % Comentar e aidicionar resumo aqui
+	
+\end{flushleft}
+\vspace*{1cm}
+\ABNTEXchapterfont\large\textbf{ABSTRACT}
+\begin{flushleft}
+	\normalsize
+	\justify
+	\normalfont
+	
+	
+	\lipsum[2] % Comentar e aidicionar abstract aqui
+	
+\end{flushleft}
+\clearpage
+
+
+% ---------------- %
+% Lista de figuras %
+% ---------------- %
+
+\begin{flushleft}
+\ABNTEXchapterfont\Large\textbf{LISTA DE FIGURAS}
+\end{flushleft}
+\vspace*{-36pt}
+\pdfbookmark[0]{\listfigurename}{lof}
+\listoffigures*
+\cleardoublepage
+
+
+% ---------------- %
+% Lista de tabelas %
+% ---------------- %
+
+\begin{flushleft}
+\ABNTEXchapterfont\Large\textbf{LISTA DE TABELAS}
+\end{flushleft}
+\vspace*{-36pt}
+\pdfbookmark[0]{\listtablename}{lot}
+\listoftables*
+\cleardoublepage
+
+
+% ------------------------------ %
+% Lista de siglas e abreviaturas %
+% ------------------------------ %
+%\vspace*{0.5cm}
+%\begin{flushleft}
+%\ABNTEXchapterfont\Large\textbf{LISTA DE SIGLAS E ABREVIATURAS}
+%    \normalsize
+%    \justify
+%    \normalfont
+%
+%\noindent
+%AG - Algoritmos Genéticos. \\
+%BT - Busca Tabu. 
+%\end{flushleft}
+%\newpage
+
+% ------- %
+% Sumario %
+% ------- %
+
+\begin{flushleft}
+\ABNTEXchapterfont\Large\textbf{SUMÁRIO}
+\end{flushleft}
+\vspace*{-36pt}
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\justify
+
+
+% -------------------------- %
+% Conteúdo do relatorio AQUI %
+% -------------------------- %
+
+% Formatação, remover espaço depois dos titulos
+\setlength\beforechapskip{-24pt}
+\setlength\afterchapskip{12pt}
+\textual
+\pagestyle{plain}
+\normalsize
+\justify
+\normalfont
+
+\include{sections/full_sections}
+
+% ----------- %
+% Referências %
+% ----------- %
+
+\titleformat{\chapter}[display]
+    {\Large\bfseries}{\vspace*{-36pt}\chaptertitlename\ \thechapter}{12pt}{\Large}
+\bibliographystyle{plain}
+\bibliography{references}
+
+% -------- %
+% Apendice %
+% -------- %
+
+\apendices
+\justify
+\chapter{Título do apêndice}
+O apêndice com informações extras
+
+% ------ %
+% Anexos %
+% ------ %
+
+\anexos
+\justify
+\chapter{Título do anexo}
+
+Deve ser precedido da palavra ANEXO, identificado por letras maiúsculas consecutivas, travessão e pelo respectivo título. Utilizam-se letras maiúsculas dobradas, na identificação dos anexos, quando esgotadas as letras do alfabeto. 
+São considerados ANEXOS: 
+
+Mapas e documentos cartográficos. 
+
+Leis, estatutos e regulamentos que esclareçam as condições jurídicas da pesquisa. 
+
+Textos e reportagens na íntegra.
+
+\end{document}
