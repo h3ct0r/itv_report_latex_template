@@ -1,4 +1,3 @@
-
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
 % Declaracao da classe abntex2 como uma extensao da classe memoir
@@ -6,8 +5,11 @@
 % ------------------------------------------------------------------------
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{abntex2itv_report}[12/12/2017 v1.0 abnTeXitv_report]
-\usepackage[utf8]{inputenc}	
+\usepackage[utf8]{inputenc}
 \usepackage{multirow}
+\RequirePackage{keyval}
+
+\newcommand{\removelinebreaks}[1]{\begingroup\def\\{ }#1\endgroup}
 
 %
 % Repassa todos os parametros a classe memoir, 
@@ -49,21 +51,60 @@
 
 % ---
 % Nomes constantes do abnTeX2 em portugues (definicoes padroes)
-\newcommand{\folhaderostoname}{Folha de rosto}
-\newcommand{\epigraphname}{Ep\'igrafe}
-\newcommand{\dedicatorianame}{Dedicat\'oria}
-\newcommand{\errataname}{Errata}
-\newcommand{\agradecimentosname}{Agradecimentos}
-\newcommand{\anexoname}{ANEXO}
-\newcommand{\anexosname}{Anexos}
-\newcommand{\apendicename}{AP\^ENDICE}
-\newcommand{\apendicesname}{Ap\^endices}
-\newcommand{\orientadorname}{Orientador:}
-\newcommand{\coorientadorname}{Coorientador:}
-\newcommand{\folhadeaprovacaoname}{Folha de aprova\c{c}\~ao}
-\newcommand{\resumoname}{Resumo} 
-\newcommand{\listadesiglasname}{Lista de abreviaturas e siglas}
-\newcommand{\listadesimbolosname}{Lista de s\'imbolos}
+\newcommand{\folhaderostoname}{Title page}
+\newcommand{\epigraphname}{Epigraph}
+\newcommand{\dedicatorianame}{Dedication}
+\newcommand{\errataname}{Errata sheet}
+\newcommand{\agradecimentosname}{Acknowledgements}
+\newcommand{\anexoname}{ANNEX}
+\newcommand{\anexosname}{Annex}
+\newcommand{\apendicename}{APPENDIX}
+\newcommand{\apendicesname}{Appendix}
+\newcommand{\orientadorname}{Supervisor:}
+\newcommand{\coorientadorname}{Co-supervisor:}
+\newcommand{\folhadeaprovacaoname}{Approval}
+\newcommand{\resumoname}{Summary} 
+\newcommand{\listadesiglasname}{List of abbreviations and acronyms}
+\newcommand{\listadesimbolosname}{List of symbols}
+\newcommand{\listadetabelasname}{Figure list}
+\newcommand{\listadefigurasname}{Symbol list}
+\newcommand{\ITVexemplotex}{sections/example-en.tex}
+\renewcommand{\bibname}{REFERENCES }
+\renewcommand{\pageautorefname}{page}
+\renewcommand{\sectionautorefname}{section}
+\renewcommand{\subsectionautorefname}{subsection}
+\renewcommand{\subsubsectionautorefname}{subsubsection}
+\renewcommand{\paragraphautorefname}{paragraph}
+\renewcommand{\contentsname}{}
+\renewcommand{\listfigurename}{}
+\renewcommand{\listtablename}{}
+
+\newcommand{\execsummarytitlename}[1][EXECUTIVE SUMMARY]{#1}
+\newcommand{\resumoatitlename}[1][RESUMO]{#1}
+\newcommand{\resumobtitlename}[1][ABSTRACT]{#1}
+\newcommand{\listadesimbolsabrevtitlename}[1][LIST OF SYMBOLS AND ABBREVIATIONS]{#1}
+\newcommand{\glosariotitlename}[1][GLOSSARY]{#1}
+\newcommand{\ITVlocation}{MI}
+\newcommand{\itvmainheadertitlename}{\MakeUppercase{ITV \ITVlocation~TECHNICAL PRODUCTION}}
+\newcommand{\ITVtechprodsimple}{ITV \ITVlocation~TECH. PROD.}
+\newcommand{\ITVmainsubsubtitle}{\imprimirtiporelatorio Report, of Project \imprimirnomeprojeto}
+\newcommand{\ITVauthorstitle}{ITV Authors}
+\newcommand{\ITVexternalauthorstitle}{External Authors}
+\newcommand{\ITVtitlename}{Title}
+\newcommand{\ITVdocumentversion}{Version}
+\newcommand{\ITVdocumentclassification}{Classification}
+\newcommand{\ITVadvisoryinformation}{
+	\begin{description}
+		\item \textbf{Confidential Information} - Strategic information for the Institute and its Maintainer. Its handling is restricted to users previously authorized by the Information Manager.
+		\item \textbf{Restricted Information} - Information whose knowledge, handling and access control should be limited to a restricted group of employees who need to use it to perform their professional activities.
+		\item \textbf{Internal Use Information} - Information intended for internal use by employees and service providers.
+		\item \textbf{Public Information} - Information that can be distributed to outside audiences, which is usually done through the appropriate corporate channels.
+	\end{description}
+}
+\newcommand{\ITVinternationalcip}{International Cataloging Data in Publication (CIP)}
+	
+
+
 % ---
 
 % ---
@@ -72,7 +113,19 @@
 \RequirePackage[brazil]{babel}
 \addto\captionsbrazil{% portugues-brasil
   %% ajusta nomes padroes do babel
-  \renewcommand{\bibname}{REFERÊNCIAS}
+  \renewcommand{\ITVexemplotex}{sections/example-pt.tex}
+  \renewcommand{\listadetabelasname}{Lista de tabelas}
+  \renewcommand{\listadefigurasname}{Lista de figuras}
+  \renewcommand{\ITVinternationalcip}{Dados Internacionais de Catalogação na Publicação (CIP)}
+  \renewcommand{\ITVdocumentversion}{Versão}
+  \renewcommand{\ITVdocumentclassification}{Classificaão}
+  \renewcommand{\ITVtitlename}{Título}
+  \renewcommand{\ITVauthorstitle}{Autores ITV}
+  \renewcommand{\ITVexternalauthorstitle}{Autores parceiros}
+  \renewcommand{\ITVmainsubsubtitle}{Relatorio \imprimirtiporelatorio do projeto \imprimirnomeprojeto}
+  \renewcommand{\itvmainheadertitlename}{\MakeUppercase{PRODUÇÃO TÉCNICA ITV~\ITVlocation}}
+  \renewcommand{\ITVtechprodsimple}{PROD. TEC. ITV.~\ITVlocation}
+  \renewcommand{\bibname}{REFERÊNCIAS }
   \renewcommand{\contentsname}{}
   \renewcommand{\indexname}{\'Indice}
   \renewcommand{\listfigurename}{}
@@ -83,9 +136,52 @@
   \renewcommand{\subsectionautorefname}{subse{\c c}\~ao}
   \renewcommand{\subsubsectionautorefname}{subse{\c c}\~ao}
   \renewcommand{\paragraphautorefname}{par\'agrafo}
+  \renewcommand{\folhaderostoname}{Folha de rosto}
+  \renewcommand{\epigraphname}{Ep\'igrafe}
+  \renewcommand{\dedicatorianame}{Dedicat\'oria}
+  \renewcommand{\errataname}{Errata}
+  \renewcommand{\agradecimentosname}{Agradecimentos}
+  \renewcommand{\anexoname}{ANEXO}
+  \renewcommand{\anexosname}{Anexos}
+  \renewcommand{\apendicename}{AP\^ENDICE}
+  \renewcommand{\apendicesname}{Ap\^endices}
+  \renewcommand{\orientadorname}{Orientador:}
+  \renewcommand{\coorientadorname}{Coorientador:}
+  \renewcommand{\folhadeaprovacaoname}{Folha de aprova\c{c}\~ao}
+  \renewcommand{\resumoname}{Resumo} 
+  \renewcommand{\listadesiglasname}{Lista de abreviaturas e siglas}
+  \renewcommand{\listadesimbolosname}{Lista de s\'imbolos}
+  \renewcommand{\execsummarytitlename}[1][SUMARIO EXECUTIVO]{#1}
+  \renewcommand{\listadesimbolsabrevtitlename}[1][LISTRA DE SÍMBOLOS E ABREVIATURAS]{#1}
+  \renewcommand{\glosariotitlename}[1][GLOSSARIO]{#1}
+  % Configurações do pacote backref
+  % Usado sem a opção hyperpageref de backref
+  \renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
+  % Texto padrão antes do número das páginas
+  \renewcommand{\backref}{}
+  % Define os textos da citação
+  \renewcommand*{\backrefalt}[4]{
+  	\ifcase #1 %
+  	Nenhuma citação no texto.%
+  	\or
+  	Citado na página #2.%
+  	\else
+  	Citado #1 vezes nas páginas #2.%
+  	\fi%
+  }%
+  \renewcommand{\ITVadvisoryinformation}{
+  	\begin{description}
+  		\item \textbf{Informações Confidenciais} - Informações estratégicas para o Instituto e sua Mantenedora. Seu manuseio é restrito a usuários previamente autorizados pelo Gestor da Informação.
+  		\item \textbf{Informações Restritas} - Informação cujo conhecimento, manuseio e controle de acesso devem estar limitados a um grupo restrito de empregados que necessitam utilizá-la para exercer suas atividades profissionais.
+  		\item \textbf{Informações de Uso Interno} - São informações destinadas à utilização interna por empregados e prestadores de serviço.
+  		\item \textbf{Informações Públicas} - Informações que podem ser distribuídas ao público externo, o que, usualmente, é feito através dos canais corporativos apropriados.
+  	\end{description}
+  }
 }
+%
 \addto\captionsenglish{% ingles
   %% adjusts names from abnTeX2
+  \renewcommand{\bibname}{REFERENCES }
   \renewcommand{\folhaderostoname}{Title page}
   \renewcommand{\epigraphname}{Epigraph}
   \renewcommand{\dedicatorianame}{Dedication}
@@ -101,12 +197,25 @@
   \renewcommand{\resumoname}{Abstract} 
   \renewcommand{\listadesiglasname}{List of abbreviations and acronyms}
   \renewcommand{\listadesimbolosname}{List of symbols}
-   %% adjusts names used by \autoref
   \renewcommand{\pageautorefname}{page}
   \renewcommand{\sectionautorefname}{section}
   \renewcommand{\subsectionautorefname}{subsection}
   \renewcommand{\subsubsectionautorefname}{subsubsection}
   \renewcommand{\paragraphautorefname}{paragraph}
+  \renewcommand{\contentsname}{}
+  \renewcommand{\listfigurename}{}
+  \renewcommand{\listtablename}{}
+  \renewcommand{\backrefpagesname}{Cited in page(s):~}
+  \renewcommand{\backref}{}
+  \renewcommand*{\backrefalt}[4]{
+  	\ifcase #1
+  	No citation in the text.
+  	\or
+  	Cited on page #2.
+  	\else
+  	Cited #1 times on pages #2.
+  	\fi
+  }
 }
 % ---
 
@@ -118,7 +227,9 @@
 % ---
 % Pacote de if/them/else
 \RequirePackage{ifthen}
-\newcommand{\abntex@ifnotempty}[2]{\ifthenelse{\not\equal{#1}{}}{#2}{}}
+\newcommand{\ifnotempty}[2]{\ifthenelse{\not\equal{#1}{}}{#2}{}}
+\newcommand{\ifelsenotempty}[3]{\ifthenelse{\not\equal{#1}{}}{#2}{#3}}
+\newcommand{\checkfor}[3]{\ifthenelse{\isundefined{#1}}{#2}{#3}}
 % ---
 
 % ---
@@ -410,6 +521,12 @@
 \newcommand{\autores}[1]{\author{#1}}
 \newcommand{\imprimirautores}{\theauthor}
 
+%\newcommand*{\portugueseuniversity}[1]{\gdef\@portugueseuniversity{#1}}
+%
+%\providecommand{\imprimirautoresexternos}{}
+%\newcommand{\autoresexternos}[1]{\renewcommand{\imprimirautoresexternos}{#1}}
+%%\newcommand{\autoresexternos}{}
+
 % Comandos de dados - titulo do documento
 \newcommand{\titulo}[1]{\title{#1}}
 \newcommand{\imprimirtitulo}{\thetitle}
@@ -513,15 +630,6 @@
 \newenvironment{errata}[1][\errataname]{%
    \pretextualchapter{#1}
   }{\PRIVATEclearpageifneeded}
-% ---
-
-% ---
-% Folha de aprovacao - NBR 14724/2011 - 4.2.1.3
-\newenvironment{folhadeaprovacao}[1][\folhadeaprovacaoname]{%
-   \clearpage%
-   \PRIVATEbookmarkthis{#1}%
-   \begin{Spacing}{1.0}
-}{\end{Spacing}\PRIVATEclearpageifneeded}   
 % ---
 
 % ---
@@ -674,31 +782,30 @@
 \makeatother
 % ---
 
-
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
 % Comandos e ambientes de editoracao CITACAO, ALINEA, INCISO, ASSINATURA
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
 
-%% ---
-%% Citacao direta com mais de 3 linhas - ABNT NBR 10520/2002 - 5.3
-%\newlength{\ABNTEXcitacaorecuo}% recuo de 4 cm da margem esquerda
-%\ifthenelse{\equal{\ABNTEXistwocolumn}{true}}{%
-%  \setlength{\ABNTEXcitacaorecuo}{1.8cm}
-%}{% else
-%  \setlength{\ABNTEXcitacaorecuo}{4cm}
-%}
-%\newenvironment*{citacao}{%
-%   \list{}%
-%   \footnotesize%
-%   \addtolength{\leftskip}{\ABNTEXcitacaorecuo}%
-%   \item[]%
-%   \begin{SingleSpace}%
-% }{%
-%   \end{SingleSpace}%
-%   \endlist}%
-%% ---
+% ---
+% Citacao direta com mais de 3 linhas - ABNT NBR 10520/2002 - 5.3
+\newlength{\ABNTEXcitacaorecuo}% recuo de 4 cm da margem esquerda
+\ifthenelse{\equal{\ABNTEXistwocolumn}{true}}{%
+	\setlength{\ABNTEXcitacaorecuo}{1.8cm}
+}{% else
+\setlength{\ABNTEXcitacaorecuo}{4cm}
+}
+\newenvironment*{citacao}{%
+	\list{}%
+	\footnotesize%
+	\addtolength{\leftskip}{\ABNTEXcitacaorecuo}%
+	\item[]%
+	\begin{SingleSpace}%
+	}{%
+\end{SingleSpace}%
+\endlist}%
+% ---
 
 % ---
 % Ambiente para alineas e e subalineas (incisos)
@@ -711,34 +818,34 @@
 \newlist{incisos}{enumerate}{1}
 \setlist[incisos,1]{label={--},topsep=0pt,itemsep=0pt,leftmargin=*}%
 % ---
-  
+
 % ---
 % Comando \assinatura for signature
-   % width of the line and text under the line
+% width of the line and text under the line
 \newlength{\ABNTEXsignwidth}
 \setlength{\ABNTEXsignwidth}{13.4cm}
-   % thickness of the line
+% thickness of the line
 \newlength{\ABNTEXsignthickness}
 \setlength{\ABNTEXsignthickness}{1pt}
-   % ammount of space left between previous text and th signature line
+% ammount of space left between previous text and th signature line
 \newlength{\ABNTEXsignskip}
 \setlength{\ABNTEXsignskip}{1cm}
-   % \assinatura{name} -> types a line with name under the line, centralized
-   % \assinatura*{name} -> Creates the box with the line and name under
-   %     it, but the box has no position assigned. However the line and the
-   %     name are centralized with respect to each other.
+% \assinatura{name} -> types a line with name under the line, centralized
+% \assinatura*{name} -> Creates the box with the line and name under
+%     it, but the box has no position assigned. However the line and the
+%     name are centralized with respect to each other.
 \makeatletter
 \newcommand{\assinatura}{\@ifstar{\ABNTEXsign}{\ABNTEXcsign}}
 \makeatother
-   % assinatura com estrela
+% assinatura com estrela
 \newcommand{\ABNTEXsign}[1]{%
-  \parbox[t]{\ABNTEXsignwidth}{\SingleSpacing\vspace*{\ABNTEXsignskip}\centering%
-  \rule{\ABNTEXsignwidth}{\ABNTEXsignthickness}\\%
-  \nopagebreak #1\par}%
+	\parbox[t]{\ABNTEXsignwidth}{\SingleSpacing\vspace*{\ABNTEXsignskip}\centering%
+		\rule{\ABNTEXsignwidth}{\ABNTEXsignthickness}\\%
+		\nopagebreak #1\par}%
 }
-   % assinatura sem estrela
+% assinatura sem estrela
 \newcommand{\ABNTEXcsign}[1]%
-  {\begingroup\par\centering\ABNTEXsign{#1}\par\endgroup}  
+{\begingroup\par\centering\ABNTEXsign{#1}\par\endgroup}  
 % ---
 
 % ------------------------------------------------------------------------
@@ -751,105 +858,116 @@
 % Impressão da Capa - alterado para os padrões da ufop
 \newcommand{\imprimircapa}{
 	\begin{capa} 
+		
+		\begin{center}
+			\begin{figure}[htp]
+				\centering
+				\ifelsenotempty{\imprimirparceirologo}{
+					\raisebox{-0.5\height}{\includegraphics[height=1.2cm]{\imprimirparceirologo}}
+					\hspace{\fill}
+					\raisebox{-0.5\height}{\includegraphics[height=1.2cm]{logos/logo_itv.png}}
+				}{
+					\hspace{\fill}
+					\raisebox{-0.5\height}{\includegraphics[height=1.2cm]{logos/logo_itv.png}}
+				}
+			\end{figure}
+		\end{center}
+		
+		\vspace*{-1cm}
+		
+		\begin{flushright}
+			\textbf{\footnotesize \ITVtechprodsimple - \imprimirprodtecnica}
+		\end{flushright}
+		
+		\centering
+		\vspace*{1cm}
+		\MakeUppercase{\large\textbf{\itvmainheadertitlename}}\\
+		\vspace*{1cm}
+		\MakeUppercase{\large\textbf{\imprimirtitulo}}\\
+		
+		\ITVmainsubsubtitle\\
+		\imprimiroutrossubtitulos\\
+		\vspace*{\fill} 
+		\begin{flushright}
+			\textbf{\ITVauthorstitle:}\\
+			\imprimirautores
+			\\~\\
+			\checkfor{\autoresexternos}{}{
+				\textbf{\ITVexternalauthorstitle:}\\
+				\autoresexternos
+			}
+		\end{flushright}
 
-	\begin{center}
-	    \begin{figure}[htp]
-	    \centering
-	    \raisebox{-0.5\height}{\includegraphics[height=1.2cm]{\imprimirparceirologo}}
-	    \hspace{\fill}
-		\raisebox{-0.5\height}{\includegraphics[height=1.2cm]{logos/logo_itv.png}}
-	    \end{figure}
-	\end{center}
-
-	\vspace*{-1cm}
-	
-	\begin{flushright}
-			 \textbf{\footnotesize PROD. TEC. ITV DS / MI -\imprimirprodtecnica}
-	\end{flushright}
-	
-	\centering
-	\vspace*{1cm}
-	\MakeUppercase{\large\textbf{Produção técnica ITV DS/MI}}\\
-	\vspace*{1cm}
-	\MakeUppercase{\large\textbf{\imprimirtitulo}}\\
-	Relatório \imprimirtiporelatorio do Projeto \imprimirnomeprojeto\\
-	\imprimiroutrossubtitulos\\
-    \vspace*{\fill} 
-    \begin{flushright}
-	    \textbf{Autores:}\\
-	    \imprimirautores
-	\end{flushright}
-    \vspace*{\fill}
-    \vspace*{\fill}    
-    {
-    	\ABNTEXchapterfont\Large\textbf\imprimirlocal\\
-    	\vspace*{1cm}
-	    \imprimirdata
-	}
-    \par
-  \end{capa}
+		\vspace*{\fill}    
+		{
+			\ABNTEXchapterfont\Large\textbf\imprimirlocal\\
+			\vspace*{1cm}
+			\imprimirdata
+		}
+		\par
+	\end{capa}
 }
 % ---
 
 % Impressão da Capa catalografica
 \newcommand{\imprimircatalografica}{
 	\begin{catalografica} 
-	\centering
-	\begin{table}[]
-	  	\centering
-	  	\begin{tabular}{|l|c|}
-	  		\hline
-	  		\multicolumn{2}{|l|}{Titulo: \imprimirtitulo} \\ \hline
-	  		\textbf{\small{PROD. TEC. ITV DS / MI - \imprimirprodtecnica}}          & Revisão          \\ \cline{1-1}
-	  		\textbf{Classificação:} \imprimirclassificacao          & \imprimirrevisao          \\ \hline
-	  	\end{tabular}
-	\end{table}
-	
-	\begin{description}
-		\item \textbf{Informações Confidenciais} - Informações estratégicas para o Instituto e sua Mantenedora. Seu manuseio é restrito a usuários previamente autorizados pelo Gestor da Informação.
-		\item \textbf{Informações Restritas} - Informação cujo conhecimento, manuseio e controle de acesso devem estar limitados a um grupo restrito de empregados que necessitam utilizá-la para exercer suas atividades profissionais.
-		\item \textbf{Informações de Uso Interno} - São informações destinadas à utilização interna por empregados e prestadores de serviço.
-		\item \textbf{Informações Públicas} - Informações que podem ser distribuídas ao público externo, o que, usualmente, é feito através dos canais corporativos apropriados.
-	\end{description}
-
-	\vspace*{\fill}
-	
-	\textbf{Dados Internacionais de Catalogação na Publicação (CIP)}
-	
-	\begin{table}[H]
 		\centering
-		\begin{tabular}{|llr|}
-			\hline
-			&                                   &                                                  \\
-			\imprimirtabelacutter & \multicolumn{2}{l|}{
-				\begin{tabular}[c]{@{}l@{}}
-					\imprimirautores
-				\end{tabular}
+		\begin{table}[]
+			\centering
+			\begin{tabular}{|l|c|}
+				\hline
+				\multicolumn{2}{|l|}{\ITVtitlename: \imprimirtitulo} \\ \hline
+				\textbf{\small{\ITVtechprodsimple - \imprimirprodtecnica}}          & \ITVdocumentversion          \\ \cline{1-1}
+				\textbf{\ITVdocumentclassification:} \imprimirclassificacao          & \imprimirrevisao          \\ \hline
+			\end{tabular}
+		\end{table}
+		
+		\ITVadvisoryinformation
+		
+		\vspace*{\fill}
+		
+		\textbf{\ITVinternationalcip}
+		
+		\begin{table}[H]
+			\centering
+			\begin{tabular}{|llr|}
+				\hline
+				&                                   &                                                  \\
+				\imprimirtabelacutter & \multicolumn{2}{l|}{
+					\begin{tabular}[c]{@{}l@{}}
+						\imprimirautores
+						\\~
+						\checkfor{\autoresexternos}{}{
+							\\\autoresexternos
+						}
+					\end{tabular}
 				}
 				\\
-			&                                   &                                                  \\
-			& \multicolumn{2}{l|}{
-				\begin{tabular}[c]{@{}l@{}}
-					\imprimirtitulo
-				\end{tabular}
+				&                                   &                                                  \\
+				& \multicolumn{2}{l|}{
+					\begin{tabular}[c]{@{}l@{}}
+						\imprimirtitulo
+					\end{tabular}
 				}
 				\\
-			& \multicolumn{2}{l|}{
-				\begin{tabular}[c]{@{}l@{}}
-					\imprimirlocal\\
-					\imprimirdata
-				\end{tabular}
+				& \multicolumn{2}{l|}{
+					\begin{tabular}[c]{@{}l@{}}
+						\imprimirlocal\\
+						\imprimirdata
+					\end{tabular}
 				}                                                     \\
-			&                                   &                                                  \\
-			&                                   &                                                  \\
-			&                                   &                                                  \\
-			& Keywords:                          &                                                  \\
-			& \multicolumn{2}{l|}{\imprimirpalavraschave}            \\
-			&                                   & \imprimirclassificacaoassunto                         \\ \hline
-		\end{tabular}
-	\end{table}
-	
-\end{catalografica}
+				&                                   &                                                  \\
+				&                                   &                                                  \\
+				&                                   &                                                  \\
+				& Keywords:                          &                                                  \\
+				& \multicolumn{2}{l|}{\imprimirpalavraschave}            \\
+				&                                   & \imprimirclassificacaoassunto                         \\ \hline
+			\end{tabular}
+		\end{table}
+		
+	\end{catalografica}
+
 	
 	\clearpage
 	
