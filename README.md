@@ -1,6 +1,6 @@
 # ITV Latex report template
 
-<img src="http://www.itv.org/wp-content/themes/html5blank/img/logo-vale.svg" alt="ITV" style="width: 150px;"/>
+<img src="http://www.itv.org/wp-content/themes/html5blank/img/logo-vale.svg" alt="ITV" width="150px"/>
 
 This report template for the Instituto Tecnologico Vale (ITV) has support for:
 
@@ -31,7 +31,7 @@ This report template for the Instituto Tecnologico Vale (ITV) has support for:
   - ```\classificacaoassunto```: Topic classificatio number, given also by the ITV library.
   - ```\parceirologo```: Partner logo, this is optional and can be disabled by commenting the command.
     
-<img src="images/screenshot.png" alt="screenshot"/>
+<img src="images/screenshot.png" alt="screenshot" width="150px"/>
 
 # Development
 
