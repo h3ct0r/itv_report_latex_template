@@ -14,22 +14,35 @@
 % by Gabriel Garcia (gabrcg@gmail.com)
 % --------------------------------------------------------------------------% 
 
+% ------------------------------- %
+% Definição de IDIOMA do template %
+% ------------------------------- %
 \documentclass[
-	% -- opções da classe memoir --
-	12pt,					% tamanho da fonte
-	openright,				% capítulos começam em pág ímpar (insere página vazia caso preciso)
-	oneside,				% para impressão em verso e anverso. Oposto a oneside
-	a4paper,				% tamanho do papel. 
-	% -- opções da classe abntex2 --
-	chapter=TITLE,			% títulos de capítulos convertidos em letras maiúsculas
-	%section=TITLE,			% títulos de seções convertidos em letras maiúsculas
-	%subsection=TITLE,		% títulos de subseções convertidos em letras maiúsculas
-	%subsubsection=TITLE,	% títulos de subsubseções convertidos em letras maiúsculas
-	% -- opções do pacote babel --
-	% o último idioma é o principal do documento
-	% *NÃO* deixar espaços/newlines embaixo do ultimo idioma (ralentiza a compilação?)
-	brazil,
-	english
+% -- opções da classe memoir --
+12pt,					% tamanho da fonte
+openright,				% capítulos começam em pág ímpar (insere página vazia caso preciso)
+oneside,				% para impressão em verso e anverso. Oposto a oneside
+a4paper,				% tamanho do papel. 
+% -- opções da classe abntex2 --
+chapter=TITLE,			% títulos de capítulos convertidos em letras maiúsculas
+%section=TITLE,			% títulos de seções convertidos em letras maiúsculas
+%subsection=TITLE,		% títulos de subseções convertidos em letras maiúsculas
+%subsubsection=TITLE,	% títulos de subsubseções convertidos em letras maiúsculas
+%
+% -------------------------------------------------------------- %
+% --             Opções de IDIOMA do pacote babel             --
+%
+% O último idioma é o principal do documento
+% *NÃO* deixar espaços/newlines embaixo do ultimo idioma
+%
+% -- Descomentar para idioma inglês
+brazil,
+english
+%
+% Descomentar para idioma Português
+%english,
+%brazil
+% -------------------------------------------------------------- %
 ]{abnt/abntex2itv_report}
 
 \usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
@@ -59,9 +72,9 @@
 
 \usepackage[none]{verlab}
 
-% -------------------------%
-% Final PDF configurations %
-% -------------------------%
+% -------------------------- %
+% Configurações do PDF final %
+% -------------------------- %
 \definecolor{blue}{RGB}{41,5,195}
 \makeatletter
 \hypersetup{
@@ -159,9 +172,9 @@
 
 \renewcommand{\ITVlocation}{MI}
 \prodtecnica{N003 / 2017}
-\titulo{Report Title}
-\tiporelatorio{Final, partial, field...} 
-\nomeprojeto{Project name}
+\titulo{Report Title/Título do relatorio}
+\tiporelatorio{Final, partial, field, etc.} 
+\nomeprojeto{Project name/Nome do projeto}
 \outrossubtitulos{~} % opcional
 
 \autores{
@@ -205,154 +218,154 @@
 \makeindex
 
 \begin{document}
-
-\frenchspacing
-
-\imprimircapa
-
-\imprimircatalografica % Optional
-
-% ----------------- %
-% Executive summary %
-% ----------------- %
-
-\ABNTEXchapterfont\large\textbf{\execsummarytitlename}
-\begin{flushleft}
-\normalsize
-\justify
-\normalfont
-
-\lipsum[2] % Comentar e adicionar resumo executivo aqui
-
-\end{flushleft}
-\clearpage
-
-% ------------------- %
-% Resumo and abstract %
-% ------------------- %
-
-\ABNTEXchapterfont\large\textbf{\resumoatitlename}
-\begin{flushleft}
-\normalsize
-\justify
-\normalfont
-
-\lipsum[2] % Comentar e adicionar resumo aqui
 	
-\end{flushleft}
-\vspace*{1cm}
-\ABNTEXchapterfont\large\textbf{\resumobtitlename}
-\begin{flushleft}
-\normalsize
-\justify
-\normalfont
+	\frenchspacing
+	
+	\imprimircapa
+	
+	\imprimircatalografica % Optional
+	
+	% ---------------- %
+	% Resumo executivo %
+	% ---------------- %
+	
+	\ABNTEXchapterfont\large\textbf{\execsummarytitlename}
+	\begin{flushleft}
+		\normalsize
+		\justify
+		\normalfont
 		
-\lipsum[2] % Comentar e adicionar abstract aqui
+		\lipsum[2] % Comentar e adicionar resumo executivo aqui
+		
+	\end{flushleft}
+	\clearpage
 	
-\end{flushleft}
-\clearpage
-
-
-% ----------- %
-% Figure list %
-% ----------- %
-
-\begin{flushleft}
-\ABNTEXchapterfont\Large\textbf{\MakeUppercase\listadefigurasname}
-\end{flushleft}
-\vspace*{-36pt}
-\pdfbookmark[0]{\listfigurename}{lof}
-\normalsize
-\listoffigures*
-\cleardoublepage
-
-
-% ---------- %
-% Table list %
-% ---------- %
-
-\begin{flushleft}
-\ABNTEXchapterfont\Large\textbf{\MakeUppercase\listadetabelasname}
-\end{flushleft}
-\vspace*{-36pt}
-\pdfbookmark[0]{\listtablename}{lot}
-\normalsize
-\listoftables*
-\cleardoublepage
-
-
-% ------------------------- %
-% List of symbols and abbr. %
-% ------------------------- %
-
-\begin{flushleft}
-\ABNTEXchapterfont\Large\textbf{\MakeUppercase\listadesimbolsabrevtitlename}
-\noindent
-%\vspace*{-36pt}
-
-\normalsize
-\normalfont
-\aclist[list=acronyms]
-
-\end{flushleft}
-\newpage
-
-% ----------------- %
-% Table of contents %
-% ----------------- %
-
-\begin{flushleft}
-\ABNTEXchapterfont\Large\textbf{\MakeUppercase\glosariotitlename}
-\end{flushleft}
-\vspace*{-36pt}
-\pdfbookmark[0]{\contentsname}{toc}
-\normalsize
-\normalfont
-\tableofcontents*
-\justify
-
-
-% ------------------- %
-% REPORT CONTENT HERE %
-% ------------------- %
-% Formatação, remover espaço depois dos titulos
-\setlength\beforechapskip{-24pt}
-\setlength\afterchapskip{12pt}
-\textual
-\pagestyle{plain}
-\normalsize
-\justify
-\normalfont
-
-\input{\ITVexemplotex} % Exemplo de uso
-% use \include to include different chapters
-
-% ---------- %
-% References %
-% ---------- %
-
-\cleardoublepage
-\titleformat{\chapter}[display]{\vspace*{-24pt}\ABNTEXchapterfont\large\bfseries}{\chaptertitlename\ \thechapter}{12pt}{\Large}
-\bibliography{bibliography}
-
-% -------- %
-% Appendix %
-% -------- %
-
-\apendices
-\justify
-\chapter{Título do apêndice}
-
-\lipsum[1] % Comentar e adicionar apêndice aqui
-
-% ----- %
-% Annex %
-% ----- %
-
-\anexos
-\justify
-\chapter{Título do anexo}
-
-\lipsum[1] % Comentar e adicionar anexo aqui
-
+	% ----------------- %
+	% Resumo e abstract %
+	% ----------------- %
+	
+	\ABNTEXchapterfont\large\textbf{\resumoatitlename}
+	\begin{flushleft}
+		\normalsize
+		\justify
+		\normalfont
+		
+		\lipsum[2] % Comentar e adicionar resumo aqui
+		
+	\end{flushleft}
+	\vspace*{1cm}
+	\ABNTEXchapterfont\large\textbf{\resumobtitlename}
+	\begin{flushleft}
+		\normalsize
+		\justify
+		\normalfont
+		
+		\lipsum[2] % Comentar e adicionar abstract aqui
+		
+	\end{flushleft}
+	\clearpage
+	
+	
+	% ---------------- %
+	% Lista de figuras %
+	% ---------------- %
+	
+	\begin{flushleft}
+		\ABNTEXchapterfont\Large\textbf{\MakeUppercase\listadefigurasname}
+	\end{flushleft}
+	\vspace*{-36pt}
+	\pdfbookmark[0]{\listfigurename}{lof}
+	\normalsize
+	\listoffigures*
+	\cleardoublepage
+	
+	
+	% ---------------- %
+	% Lista de tabelas %
+	% ---------------- %
+	
+	\begin{flushleft}
+		\ABNTEXchapterfont\Large\textbf{\MakeUppercase\listadetabelasname}
+	\end{flushleft}
+	\vspace*{-36pt}
+	\pdfbookmark[0]{\listtablename}{lot}
+	\normalsize
+	\listoftables*
+	\cleardoublepage
+	
+	
+	% -------------------------- %
+	% Lista de simbolos e abrev. %
+	% -------------------------- %
+	
+	\begin{flushleft}
+		\ABNTEXchapterfont\Large\textbf{\MakeUppercase\listadesimbolsabrevtitlename}
+		\noindent
+		%\vspace*{-36pt}
+		
+		\normalsize
+		\normalfont
+		\aclist[list=acronyms]
+		
+	\end{flushleft}
+	\newpage
+	
+	% ------------------ %
+	% Tabela de conteudo %
+	% ------------------ %
+	
+	\begin{flushleft}
+		\ABNTEXchapterfont\Large\textbf{\MakeUppercase\glosariotitlename}
+	\end{flushleft}
+	\vspace*{-36pt}
+	\pdfbookmark[0]{\contentsname}{toc}
+	\normalsize
+	\normalfont
+	\tableofcontents*
+	\justify
+	
+	
+	% ------------------------------ %
+	% Conteudo do relatorio **AQUI** %
+	% ------------------------------ %
+	% Formatação, remover espaço depois dos titulos
+	\setlength\beforechapskip{-24pt}
+	\setlength\afterchapskip{12pt}
+	\textual
+	\pagestyle{plain}
+	\normalsize
+	\justify
+	\normalfont
+	
+	\input{\ITVexemplotex} % Exemplo de uso
+	% use \include to include different chapters
+	
+	% ----------- %
+	% Referências %
+	% ----------- %
+	
+	\cleardoublepage
+	\titleformat{\chapter}[display]{\vspace*{-24pt}\ABNTEXchapterfont\large\bfseries}{\chaptertitlename\ \thechapter}{12pt}{\Large}
+	\bibliography{bibliography}
+	
+	% -------- %
+	% Apêndice %
+	% -------- %
+	
+	\apendices
+	\justify
+	\chapter{\ITVtitlename}
+	
+	\lipsum[1] % Comentar e adicionar apêndice aqui
+	
+	% ----- %
+	% Anexo %
+	% ----- %
+	
+	\anexos
+	\justify
+	\chapter{\ITVtitlename}
+	
+	\lipsum[1] % Comentar e adicionar anexo aqui
+	
 \end{document}

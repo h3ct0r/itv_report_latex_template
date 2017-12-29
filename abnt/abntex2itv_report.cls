@@ -85,9 +85,9 @@
 \newcommand{\listadesimbolsabrevtitlename}[1][LIST OF SYMBOLS AND ABBREVIATIONS]{#1}
 \newcommand{\glosariotitlename}[1][GLOSSARY]{#1}
 \newcommand{\ITVlocation}{MI}
-\newcommand{\itvmainheadertitlename}{\MakeUppercase{ITV \ITVlocation~TECHNICAL PRODUCTION}}
-\newcommand{\ITVtechprodsimple}{ITV \ITVlocation~TECH. PROD.}
-\newcommand{\ITVmainsubsubtitle}{\imprimirtiporelatorio Report, of Project \imprimirnomeprojeto}
+\newcommand{\itvmainheadertitlename}{\MakeUppercase{ITV~\ITVlocation~TECHNICAL PRODUCTION}}
+\newcommand{\ITVtechprodsimple}{ITV~\ITVlocation~TECH. PROD.}
+\newcommand{\ITVmainsubsubtitle}{\imprimirtiporelatorio~Report, of Project \imprimirnomeprojeto}
 \newcommand{\ITVauthorstitle}{ITV Authors}
 \newcommand{\ITVexternalauthorstitle}{External Authors}
 \newcommand{\ITVtitlename}{Title}
@@ -122,7 +122,7 @@
   \renewcommand{\ITVtitlename}{Título}
   \renewcommand{\ITVauthorstitle}{Autores ITV}
   \renewcommand{\ITVexternalauthorstitle}{Autores parceiros}
-  \renewcommand{\ITVmainsubsubtitle}{Relatorio \imprimirtiporelatorio do projeto \imprimirnomeprojeto}
+  \renewcommand{\ITVmainsubsubtitle}{Relatorio~\imprimirtiporelatorio~do projeto~\imprimirnomeprojeto}
   \renewcommand{\itvmainheadertitlename}{\MakeUppercase{PRODUÇÃO TÉCNICA ITV~\ITVlocation}}
   \renewcommand{\ITVtechprodsimple}{PROD. TEC. ITV.~\ITVlocation}
   \renewcommand{\bibname}{REFERÊNCIAS }
