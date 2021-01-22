@@ -15,6 +15,22 @@ Normal cite: \cite{earnshaw2014virtual}. Multiple citation: \cite{azuma1997surve
 
 \lipsum[1]
 
+In Table~\ref{tab:autonomy} ...
+
+\begin{table}[htb]
+	\centering
+	\caption{Flight autonomy.}
+	\label{tab:autonomy}
+	\begin{tabular}{l|l|l|}
+		\cline{2-3} & Towers 51-50 & Towers 49-50 \\ \hline
+		\multicolumn{1}{|l|}{Flight time}         & 11m54s       & 09m14s       \\ \hline
+		\multicolumn{1}{|l|}{Battery on takeoff} & 74\%         & 80\%         \\ \hline
+		\multicolumn{1}{|l|}{Battery on landing}     & 33\%         & 48\%         \\ \hline
+		\multicolumn{1}{|l|}{Max speed}    & 12,5 km/h    & 21,3 km/h    \\ \hline
+	\end{tabular}
+	\legend{Source: The authors.}
+\end{table}
+
 \section{Topic b}
 
 \lipsum[1]
@@ -25,20 +41,20 @@ Normal cite: \cite{earnshaw2014virtual}. Multiple citation: \cite{azuma1997surve
 It should contain the description of the study area and materials (data bank, data collection, images, etc.) and methodological procedures (experiments, interviews, statistical methods, etc.) that will be used to carry out the work, so that others researchers can reproduce the study. It can be presented as subdivisions below.
 
 \begin{itemize}
-	\item \large \textbf{AHA}: \large \textit{The American Heart Association Database for Evaluation of Ventricular Arrhythmia Detectors}.
-	\item \large \textbf{MIT–BIH}: \large \textit{The Massachusetts Institute of Technology–Beth Israel Hospital Arrhythmia Database}.
-	\item \large \textbf{ESC}: \large \textit{The European Society of Cardiology ST-T Database} (90 records of 2 hours each).
-	\item \large \textbf{NST}: \large \textit{The Noise Stress Test Database}.
-	\item \large \textbf{CU}: \large \textit{The Creighton University Sustained Ventricular Arrhythmia Database}.
+	\item \textbf{AHA}: \large \textit{The American Heart Association Database for Evaluation of Ventricular Arrhythmia Detectors}.
+	\item \textbf{MIT–BIH}: \large \textit{The Massachusetts Institute of Technology–Beth Israel Hospital Arrhythmia Database}.
+	\item \textbf{ESC}: \large \textit{The European Society of Cardiology ST-T Database} (90 records of 2 hours each).
+	\item \textbf{NST}: \large \textit{The Noise Stress Test Database}.
+	\item \textbf{CU}: \large \textit{The Creighton University Sustained Ventricular Arrhythmia Database}.
 \end{itemize}
 
 \section{MIT-BIH}
 
 \begin{figure}[htb]
-	\begin{center}  
-		\includegraphics[scale=0.6]{images/haptic.png}
-	\end{center}
 	\caption{Beat examples.}
+	\begin{center}  
+		\includegraphics[scale=0.6]{img/examples/haptic.png}
+	\end{center}
 	\legend{Source: \cite[p. 13]{earnshaw2014virtual}}
 	\label{fig_mitbih}
 \end{figure}
@@ -63,6 +79,8 @@ It should contain the description of the study area and materials (data bank, da
 			\cellcolor[HTML]{EFEFEF}Total &                                                                                                                                                        & 89592    & 2590        & 6612       \\ \hline
 		\end{tabular}
 	\end{adjustbox}
+	\legend{Source: The authors.}
+	\label{table:aa}
 \end{table}
 
 \subsubsection{Sub sub section}
@@ -88,13 +106,15 @@ w_{ij} = e_{i,j} = \sqrt{(x_i - x_j)^2 + (y_i - y_j)^2 + (z_i - z_j)^2},
 		\EndProcedure
 	\end{algorithmic}
 \end{algorithm}
+
 \begin{equation}
 \label{eq:sigmoide}
 s(v)=\frac{1}{1+\exp(-v)}
 \end{equation}
 
 \begin{figure}[htb]
-	\begin{center}  
+	\begin{center} 
+		\caption{Behavior of the sigmoid function for values between -10 and 10.} 
 		\begin{tikzpicture}
 		\begin{axis}[
 		legend pos=north west,
@@ -124,7 +144,7 @@ s(v)=\frac{1}{1+\exp(-v)}
 		\end{axis}
 		\end{tikzpicture}
 	\end{center}
-	\caption{Behavior of the sigmoid function for values between -10 and 10.}
+	\legend{Source: The authors.}
 	\label{fig_sigmoide}
 \end{figure}
 

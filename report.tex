@@ -8,7 +8,7 @@
 % This report template was 
 % created by Hector Azpurua (hector.azpurua@itv.org)
 % Original version: dec/2017
-% https://github.com/h3ct0r/itv_report_latex_template/s
+% https://github.com/h3ct0r/itv_report_latex_template/
 % 
 % Based on ABNTEX2 and the thesis template
 % by Gabriel Garcia (gabrcg@gmail.com)
@@ -36,24 +36,23 @@ chapter=TITLE,			% títulos de capítulos convertidos em letras maiúsculas
 % *NÃO* deixar espaços/newlines embaixo do ultimo idioma
 %
 % -- Descomentar para idioma inglês
-brazil,
-english
+%brazil,
+%english
 %
 % Descomentar para idioma Português
-%english,
-%brazil
+english,
+brazil
 % -------------------------------------------------------------- %
 ]{abnt/abntex2itv_report}
 
 \usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
 \usepackage{lastpage}			% Usado pela Ficha catalográfica
 \usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
-\usepackage{color}				% Controle das cores
+\usepackage[table,xcdraw]{xcolor}				% Controle das cores
 \usepackage{graphicx}			
 \usepackage{microtype} 			% para melhorias de justificação
 \usepackage{supertabular}       % tabela na capa do documento
 \usepackage{booktabs}
-\usepackage[table,xcdraw]{xcolor}
 \usepackage{adjustbox}
 \usepackage{amssymb,amsmath,mathrsfs}
 \usepackage{algorithm,algpseudocode}
@@ -61,7 +60,6 @@ english
 \usepackage{tikz}
 \usepackage{lipsum}	
 \hypersetup{draft}
-\usepackage{titlesec}
 \usepackage{ragged2e}
 \usepackage{tocloft}
 \usepackage{etoolbox}
@@ -69,6 +67,12 @@ english
 \usepackage[alf,abnt-etal-list=0,abnt-etal-cite=3,abnt-emphasize=bf]{abntex2cite}
 \usepackage[normalem]{ulem}
 \usepackage{yaacro}
+%\usepackage{lscape}
+%\usepackage{rotating}
+
+%other packages
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
 
 \usepackage[none]{verlab}
 
@@ -97,13 +101,19 @@ english
 % Formatação %
 % ---------- %
 \apptocmd{\thebibliography}{\justifying}{}{} 
-
 \renewcommand{\ABNTEXsectionfont}{\bfseries}
+\setlength{\cftsectionindent}{0em}
+\setlength{\cftsubsectionindent}{0em}
+\setlength{\cftsubsubsectionindent}{0em}
 
-\titlespacing*{\chapter}{0pt}{0pt}{12pt}
-\titlespacing*{\section}{0pt}{6pt}{6pt}
-\titlespacing*{\subsection}{0pt}{6pt}{6pt}
-\titlespacing*{\subsubsection}{0pt}{6pt}{6pt}
+\AtBeginDocument{
+	\addtocontents{toc}{\normalsize}
+}
+
+% \makeatletter
+% \newcommand{\todo}[1]{{\color{red}\textbf{{\large @TODO\@ifempty{#1}{}{: }}#1}}}
+% \newcommand{\reviewtext}[1]{{\color{blue}#1}}
+% \makeatother
 
 % Rearranja os finais de cada estrutura
 \algrenewtext{EndWhile}{\algorithmicend\ \algorithmicwhile}
@@ -130,9 +140,6 @@ english
 % \titulo
 %		Titulo do relatorio Ex: "Relatorio do estado da arte".
 %
-% \tiporelatorio
-%		Tipo de relatorio: "Final", "Parcial", "de Campo", etc.
-%
 % \nomeprojeto
 %		Nome do projeto.
 %
@@ -151,52 +158,33 @@ english
 % \data
 %		Data do documento em formato Mês/Ano.
 %
-% \classificacao 
-%		Tipo de classificação do documento. 
-%		Ex: (  ) Confidencial  (X) Restrita  (  )  Uso Interno  (  ) Pública.
-%
-% \revisao
-%		Versão do documento.
-%
-% \tabelacutter
-%		Informação biblioteca ITV.
-%
-% \palavraschave
-%		Palavras chave do documento. Ex: 1. Palavra chave. 2. Palavra chave. 3. Palavra chave.
-%
-% \classificacaoassunto
-%		Número de Classificação do assunto da dissertação (Consultar biblioteca).
-%
 % \parceirologo 
 %		Logo do parceiro a ser colocado na portada do documento, pode ser opcional comentando a função.
 
 \renewcommand{\ITVlocation}{MI}
-\prodtecnica{N003 / 2017}
+\prodtecnica{N001/2077\\DOI:00.00000/PROD.TEC.ITV.Snow}
 \titulo{Report Title/Título do relatorio}
-\tiporelatorio{Final, partial, field, etc.} 
 \nomeprojeto{Project name/Nome do projeto}
 \outrossubtitulos{~} % opcional
 
 \autores{
-	ITV author 1\\
-	ITV author 2\\
-	ITV author 3
+	\small
+	Jon Snow\\
+	Son Goku\\
+	Megaman X7 Maverick\\
+	Conan The Barbarian
 }
 
-\newcommand{\autoresexternos}{
-	External 1\\
-	External 2\\
-	External 3\\
+\newcommand{\autoresexternos}{ % optional
+	Cleyton Dias\\
+	Gabriel Garcia\\
+	Jhonson Santos\\
+	Robson Gomes
 }
 
 \local{Ouro Preto\\Minas Gerais, Brasil}
-\data{December/2017}
-\classificacao{( ) Confidential  (X) Restrict  ( )  Internal use  ( ) Public} % Marcar com X a classificação desejada
-\revisao{01}
-\tabelacutter{000} % Tabela de Cutter (Consultar biblioteca ITV)
-\palavraschave{1. Teleoperation. 2. Mining equipment. 3. Computer vision.}
-\classificacaoassunto{000} % Número de Classificação do assunto da dissertação (Consultar biblioteca)
-%\parceirologo{logos/verlab.png}
+\data{Março/2020}
+\parceirologo{logos/logo_parceiro_base.png} % optional
 
 % --------------------------------------%
 % Finalização das configurações da capa %
@@ -223,12 +211,23 @@ english
 	
 	\imprimircapa
 	
-	\imprimircatalografica % Optional
+	% ------------------- %
+	% Ficha Catalográfica %
+	% ------------------- %
+	{
+		% Usar a ficha catalográfica gerada pela biblioteca do ITV em formato PDF
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.99\linewidth]{img/examples/ficha_catalografica_demo.pdf} %usar linewidth ao invés de textwidth
+		\end{figure}
+		
+		\cleardoublepage
+	}
 	
 	% ---------------- %
 	% Resumo executivo %
 	% ---------------- %
-	
+	\centering
 	\ABNTEXchapterfont\large\textbf{\execsummarytitlename}
 	\begin{flushleft}
 		\normalsize
@@ -236,14 +235,12 @@ english
 		\normalfont
 		
 		\lipsum[2] % Comentar e adicionar resumo executivo aqui
-		
 	\end{flushleft}
 	\clearpage
 	
 	% ----------------- %
 	% Resumo e abstract %
 	% ----------------- %
-	
 	\ABNTEXchapterfont\large\textbf{\resumoatitlename}
 	\begin{flushleft}
 		\normalsize
@@ -251,17 +248,20 @@ english
 		\normalfont
 		
 		\lipsum[2] % Comentar e adicionar resumo aqui
-		
+		\noindent\textbf{Palavras-chave:} Keyword 1. Keyword 2. Keyword 3. Keyword 4.
 	\end{flushleft}
+	
 	\vspace*{1cm}
+	
 	\ABNTEXchapterfont\large\textbf{\resumobtitlename}
 	\begin{flushleft}
 		\normalsize
 		\justify
 		\normalfont
 		
-		\lipsum[2] % Comentar e adicionar abstract aqui
+		\lipsum[2] % Comentar e adicionar resumo em ingles aqui
 		
+		\noindent\textbf{Keywords:} Keyword 1. Keyword 2. Keyword 3. Keyword 4.
 	\end{flushleft}
 	\clearpage
 	
@@ -269,11 +269,8 @@ english
 	% ---------------- %
 	% Lista de figuras %
 	% ---------------- %
-	
-	\begin{flushleft}
-		\ABNTEXchapterfont\Large\textbf{\MakeUppercase\listadefigurasname}
-	\end{flushleft}
-	\vspace*{-36pt}
+	\ABNTEXchapterfont\Large\textbf{\MakeUppercase\listadefigurasname}
+	\vspace*{-24pt}
 	\pdfbookmark[0]{\listfigurename}{lof}
 	\normalsize
 	\listoffigures*
@@ -283,11 +280,8 @@ english
 	% ---------------- %
 	% Lista de tabelas %
 	% ---------------- %
-	
-	\begin{flushleft}
-		\ABNTEXchapterfont\Large\textbf{\MakeUppercase\listadetabelasname}
-	\end{flushleft}
-	\vspace*{-36pt}
+	\ABNTEXchapterfont\Large\textbf{\MakeUppercase\listadetabelasname}
+	\vspace*{-24pt}
 	\pdfbookmark[0]{\listtablename}{lot}
 	\normalsize
 	\listoftables*
@@ -297,33 +291,27 @@ english
 	% -------------------------- %
 	% Lista de simbolos e abrev. %
 	% -------------------------- %
-	
-	\begin{flushleft}
+	\begin{centering}
 		\ABNTEXchapterfont\Large\textbf{\MakeUppercase\listadesimbolsabrevtitlename}
 		\noindent
-		%\vspace*{-36pt}
-		
 		\normalsize
 		\normalfont
 		\aclist[list=acronyms]
-		
-	\end{flushleft}
+	\end{centering}
 	\newpage
 	
+	% 	\newpage
 	% ------------------ %
 	% Tabela de conteudo %
 	% ------------------ %
-	
-	\begin{flushleft}
-		\ABNTEXchapterfont\Large\textbf{\MakeUppercase\glosariotitlename}
-	\end{flushleft}
-	\vspace*{-36pt}
+	\ABNTEXchapterfont\Large\textbf{\MakeUppercase\glosariotitlename}
+	\vspace*{-24pt}
 	\pdfbookmark[0]{\contentsname}{toc}
 	\normalsize
 	\normalfont
 	\tableofcontents*
 	\justify
-	
+	\cleardoublepage
 	
 	% ------------------------------ %
 	% Conteudo do relatorio **AQUI** %
@@ -334,38 +322,59 @@ english
 	\textual
 	\pagestyle{plain}
 	\normalsize
-	\justify
+	%\justify
 	\normalfont
 	
 	\input{\ITVexemplotex} % Exemplo de uso
 	% use \include to include different chapters
+	% for example:
+	% \input{sections/1_introduction}
 	
 	% ----------- %
 	% Referências %
 	% ----------- %
-	
 	\cleardoublepage
-	\titleformat{\chapter}[display]{\vspace*{-24pt}\ABNTEXchapterfont\large\bfseries}{\chaptertitlename\ \thechapter}{12pt}{\Large}
+%	\titleformat{\chapter}[display]{\vspace*{-24pt}\ABNTEXchapterfont\centering\large\bfseries}{\chaptertitlename\ \thechapter}{12pt}{\Large}
+%	
+%	\ABNTEXchapterfont\centering\Large\textbf{\MakeUppercase{\anexosname}}
 	\bibliography{bibliography}
 	
 	% -------- %
 	% Apêndice %
 	% -------- %
+	% 	\apendices
+	% 	\justify
+	% 	\chapter{\ITVtitlename}
 	
-	\apendices
-	\justify
-	\chapter{\ITVtitlename}
-	
-	\lipsum[1] % Comentar e adicionar apêndice aqui
+	% 	\lipsum[1] % Comentar e adicionar apêndice aqui
 	
 	% ----- %
 	% Anexo %
 	% ----- %
+	\newpage
+	\begin{flushleft}
+		\ABNTEXchapterfont\centering\Large\textbf{\MakeUppercase{\anexosname}}
+	\end{flushleft}
+	\vspace*{-36pt}
+	\pdfbookmark[0]{\contentsname}{toc}
+	\normalsize
+	\normalfont
+	\justify
 	
 	\anexos
 	\justify
-	\chapter{\ITVtitlename}
+	\centering
+	\chapter{XXXXX}
+	\label{chapter:anexo1}
 	
-	\lipsum[1] % Comentar e adicionar anexo aqui
+	\lipsum[1].
+	
+	\begin{figure}[htbp] %NÃO usar H, usar htbp
+		\centering
+		\caption{Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquam, arcu vel rutrum fermentum, ex sem tempus odio, eget congue dolor lacus et justo.}
+		\label{fig:annex1}
+		\includegraphics[width=0.65\linewidth]{img/examples/vcg.png} %usar linewidth ao invés de textwidth
+		\legend{Fonte: Os autores.}
+	\end{figure}
 	
 \end{document}

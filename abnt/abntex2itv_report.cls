@@ -17,15 +17,15 @@
 %
 \providecommand{\ABNTEXisarticle}{false}
 \DeclareOption{article}{
-	\renewcommand{\ABNTEXisarticle}{true}
-	\PassOptionsToClass{article}{memoir}%}
+  \renewcommand{\ABNTEXisarticle}{true}
+  \PassOptionsToClass{article}{memoir}%}
 }
 \providecommand{\ABNTEXistwocolumn}{false}
 \DeclareOption{twocolumn}{
-	\renewcommand{\ABNTEXistwocolumn}{true}
-	\PassOptionsToClass{twocolumn}{memoir}%}
+  \renewcommand{\ABNTEXistwocolumn}{true}
+  \PassOptionsToClass{twocolumn}{memoir}%}
 }
-	
+  
 \DeclareOption*{%
   \PassOptionsToClass{\CurrentOption}{memoir}%
 }
@@ -46,7 +46,7 @@
 
 % ---
 % Controla os bookmarks do PDF
-\RequirePackage{bookmark}   			
+\RequirePackage{bookmark}         
 % ---
 
 % ---
@@ -94,15 +94,15 @@
 \newcommand{\ITVdocumentversion}{Version}
 \newcommand{\ITVdocumentclassification}{Classification}
 \newcommand{\ITVadvisoryinformation}{
-	\begin{description}
-		\item \textbf{Confidential Information} - Strategic information for the Institute and its Maintainer. Its handling is restricted to users previously authorized by the Information Manager.
-		\item \textbf{Restricted Information} - Information whose knowledge, handling and access control should be limited to a restricted group of employees who need to use it to perform their professional activities.
-		\item \textbf{Internal Use Information} - Information intended for internal use by employees and service providers.
-		\item \textbf{Public Information} - Information that can be distributed to outside audiences, which is usually done through the appropriate corporate channels.
-	\end{description}
+  \begin{description}
+    \item \textbf{Confidential Information} - Strategic information for the Institute and its Maintainer. Its handling is restricted to users previously authorized by the Information Manager.
+    \item \textbf{Restricted Information} - Information whose knowledge, handling and access control should be limited to a restricted group of employees who need to use it to perform their professional activities.
+    \item \textbf{Internal Use Information} - Information intended for internal use by employees and service providers.
+    \item \textbf{Public Information} - Information that can be distributed to outside audiences, which is usually done through the appropriate corporate channels.
+  \end{description}
 }
 \newcommand{\ITVinternationalcip}{International Cataloging Data in Publication (CIP)}
-	
+  
 
 
 % ---
@@ -118,11 +118,11 @@
   \renewcommand{\listadefigurasname}{Lista de figuras}
   \renewcommand{\ITVinternationalcip}{Dados Internacionais de Catalogação na Publicação (CIP)}
   \renewcommand{\ITVdocumentversion}{Versão}
-  \renewcommand{\ITVdocumentclassification}{Classificaão}
+  \renewcommand{\ITVdocumentclassification}{Classificação}
   \renewcommand{\ITVtitlename}{Título}
   \renewcommand{\ITVauthorstitle}{Autores ITV}
   \renewcommand{\ITVexternalauthorstitle}{Autores parceiros}
-  \renewcommand{\ITVmainsubsubtitle}{Relatorio~\imprimirtiporelatorio~do projeto~\imprimirnomeprojeto}
+  \renewcommand{\ITVmainsubsubtitle}{~\imprimirtiporelatorio~~\imprimirnomeprojeto}
   \renewcommand{\itvmainheadertitlename}{\MakeUppercase{PRODUÇÃO TÉCNICA ITV~\ITVlocation}}
   \renewcommand{\ITVtechprodsimple}{PROD. TEC. ITV.~\ITVlocation}
   \renewcommand{\bibname}{REFERÊNCIAS }
@@ -151,9 +151,9 @@
   \renewcommand{\resumoname}{Resumo} 
   \renewcommand{\listadesiglasname}{Lista de abreviaturas e siglas}
   \renewcommand{\listadesimbolosname}{Lista de s\'imbolos}
-  \renewcommand{\execsummarytitlename}[1][SUMARIO EXECUTIVO]{#1}
-  \renewcommand{\listadesimbolsabrevtitlename}[1][LISTRA DE SÍMBOLOS E ABREVIATURAS]{#1}
-  \renewcommand{\glosariotitlename}[1][GLOSSARIO]{#1}
+  \renewcommand{\execsummarytitlename}[1][RESUMO EXECUTIVO]{#1}
+  \renewcommand{\listadesimbolsabrevtitlename}[1][LISTA DE SÍMBOLOS E ABREVIAÇÕES]{#1}
+  \renewcommand{\glosariotitlename}[1][SUM\'ARIO]{#1}
   % Configurações do pacote backref
   % Usado sem a opção hyperpageref de backref
   \renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
@@ -161,21 +161,21 @@
   \renewcommand{\backref}{}
   % Define os textos da citação
   \renewcommand*{\backrefalt}[4]{
-  	\ifcase #1 %
-  	Nenhuma citação no texto.%
-  	\or
-  	Citado na página #2.%
-  	\else
-  	Citado #1 vezes nas páginas #2.%
-  	\fi%
+    \ifcase #1 %
+    Nenhuma citação no texto.%
+    \or
+    Citado na página #2.%
+    \else
+    Citado #1 vezes nas páginas #2.%
+    \fi%
   }%
   \renewcommand{\ITVadvisoryinformation}{
-  	\begin{description}
-  		\item \textbf{Informações Confidenciais} - Informações estratégicas para o Instituto e sua Mantenedora. Seu manuseio é restrito a usuários previamente autorizados pelo Gestor da Informação.
-  		\item \textbf{Informações Restritas} - Informação cujo conhecimento, manuseio e controle de acesso devem estar limitados a um grupo restrito de empregados que necessitam utilizá-la para exercer suas atividades profissionais.
-  		\item \textbf{Informações de Uso Interno} - São informações destinadas à utilização interna por empregados e prestadores de serviço.
-  		\item \textbf{Informações Públicas} - Informações que podem ser distribuídas ao público externo, o que, usualmente, é feito através dos canais corporativos apropriados.
-  	\end{description}
+    \begin{description}
+      \item \textbf{Informações Confidenciais} - Informações estratégicas para o Instituto e sua Mantenedora. Seu manuseio é restrito a usuários previamente autorizados pelo Gestor da Informação.
+      \item \textbf{Informações Restritas} - Informação cujo conhecimento, manuseio e controle de acesso devem estar limitados a um grupo restrito de empregados que necessitam utilizá-la para exercer suas atividades profissionais.
+      \item \textbf{Informações de Uso Interno} - São informações destinadas à utilização interna por empregados e prestadores de serviço.
+      \item \textbf{Informações Públicas} - Informações que podem ser distribuídas ao público externo, o que, usualmente, é feito através dos canais corporativos apropriados.
+    \end{description}
   }
 }
 %
@@ -208,13 +208,13 @@
   \renewcommand{\backrefpagesname}{Cited in page(s):~}
   \renewcommand{\backref}{}
   \renewcommand*{\backrefalt}[4]{
-  	\ifcase #1
-  	No citation in the text.
-  	\or
-  	Cited on page #2.
-  	\else
-  	Cited #1 times on pages #2.
-  	\fi
+    \ifcase #1
+    No citation in the text.
+    \or
+    Cited on page #2.
+    \else
+    Cited #1 times on pages #2.
+    \fi
   }
 }
 % ---
@@ -273,13 +273,13 @@
 \newcommand{\ABNTEXchapterfont}{\bfseries}
 \newcommand{\ABNTEXchapterfontsize}{\Large}
 
-\newcommand{\ABNTEXsectionfont}{}
+\newcommand{\ABNTEXsectionfont}{\mdseries}
 \newcommand{\ABNTEXsectionfontsize}{\large}
 
 \newcommand{\ABNTEXsubsectionfont}{\bfseries}
-\newcommand{\ABNTEXsubsectionfontsize}{\large}
+\newcommand{\ABNTEXsubsectionfontsize}{\normalsize}
 
-\newcommand{\ABNTEXsubsubsectionfont}{\bfseries}
+\newcommand{\ABNTEXsubsubsectionfont}{\mdseries}
 \newcommand{\ABNTEXsubsubsectionfontsize}{\normalsize}
 
 \newcommand{\ABNTEXpartfont}{}
@@ -375,23 +375,30 @@
 \setsecnumdepth{subsubsection}
 \settocdepth{subsubsection}   %\maxtocdepth{subsubsection}
 
+% FORMATO EXTRA DO SUMARIO
+\renewcommand{\cftchapterfont}{\bfseries}
+\renewcommand{\cftsectionfont}{\MakeUppercase}
+\renewcommand{\cftsubsectionfont}{\bfseries}
+\renewcommand{\cftsubsubsectionfont}{\mdseries}
+\setlength{\cftsubsectionnumwidth}{15mm}
+
 % lista de ilustracoes
-\renewcommand{\cftfigurename}{\figurename\space} 
+\renewcommand{\cftfigurename}{\bfseries\figurename\space} 
  \renewcommand*{\cftfigureaftersnum}{: }
 % cristiano, o comando acima estava assim:
-%  \renewcommand*{\cftfigureaftersnum}{~~--}		
+%  \renewcommand*{\cftfigureaftersnum}{~~--}    
  
 % lista de tabelas  
-\renewcommand{\cfttablename}{\tablename\space}
-\renewcommand*{\cfttableaftersnum}{: }	
+\renewcommand{\cfttablename}{\bfseries\tablename\space}
+\renewcommand*{\cfttableaftersnum}{: }  
 % cristiano, o comando acima estava assim:
-% \renewcommand*{\cfttableaftersnum}{~~--}	
+% \renewcommand*{\cfttableaftersnum}{~~--}  
 
 % muda o tamanho do chapter no sumário
 \renewcommand{\tocheadstart}{\large}
 
 % leaders para os capitulos
-%\renewcommand*{\cftchapterdotsep}{\cftdotsep}
+\renewcommand*{\cftchapterdotsep}{\cftdotsep}
 % -----
 
 % ---
@@ -403,7 +410,7 @@
 \makechapterstyle{abnt}{%
   \newlength{\chapternamenumlength}
 
-  % tamanhos de fontes de chapter e part	
+  % tamanhos de fontes de chapter e part  
    \ifthenelse{\equal{\ABNTEXisarticle}{true}}{%
      \setlength\beforechapskip{\baselineskip}
      \renewcommand{\chaptitlefont}{\ABNTEXsectionfont\bfseries\ABNTEXsectionfontsize}
@@ -412,13 +419,13 @@
      \renewcommand{\chaptitlefont}{\ABNTEXchapterfont\bfseries\ABNTEXchapterfontsize}
    }
   
-  \renewcommand{\chapnumfont}{\chaptitlefont}
+  \renewcommand{\chapnumfont}{\chaptitlefont\MakeUppercase}
   \renewcommand{\parttitlefont}{\ABNTEXpartfont\bfseries\ABNTEXpartfontsize}
   \renewcommand{\partnumfont}{\ABNTEXpartfont\bfseries\ABNTEXpartfontsize}
   \renewcommand{\partnamefont}{\ABNTEXpartfont\bfseries\ABNTEXpartfontsize}
   
   % tamanhos de fontes de section, subsection e subsubsection
-  \setsecheadstyle{\ABNTEXchapterfont\ABNTEXsectionfontsize}
+  \setsecheadstyle{\ABNTEXsectionfontsize\uppercase}
   \setsubsecheadstyle{\ABNTEXsubsectionfont\ABNTEXsubsectionfontsize}
   \setsubsubsecheadstyle{\ABNTEXsubsubsectionfont\ABNTEXsubsubsectionfontsize}
   
@@ -435,12 +442,12 @@
   \def\printchaptertitle##1{%
     \chaptitlefont%
     \ifthenelse{\boolean{abntex@innonumchapter}}{\centering##1}{% else
-	    \settowidth{\chapternamenumlength}{\printchaptername\printchapternum\afterchapternum}%
-	    \parbox[t]{\columnwidth-\chapternamenumlength}{##1}%
-	}    
+      \settowidth{\chapternamenumlength}{\printchaptername\printchapternum\afterchapternum}%
+      \parbox[t]{\columnwidth-\chapternamenumlength}{\MakeUppercase{##1}}%
+  }    
   }
        
-  % impressao do numero do capitulo     	
+  % impressao do numero do capitulo       
   \renewcommand{\printchapternum}{%
      \setboolean{abntex@innonumchapter}{false}
      \chapnumfont%
@@ -688,7 +695,7 @@
 % ---
 
 % ---
-% Lista de sembolos
+% Lista de simbolos
 \newenvironment{simbolos}{%
   \pretextualchapter{\listadesimbolosname}
   \begin{symbols}
@@ -766,7 +773,7 @@
 % ---
 
 % ---
-% Imprime uma pagina de divisao no estilo parte
+% % Imprime uma pagina de divisao no estilo parte
 \newcommand{\partpage}{%
   \cleardoublepage
   \phantomsection
@@ -792,17 +799,17 @@
 % Citacao direta com mais de 3 linhas - ABNT NBR 10520/2002 - 5.3
 \newlength{\ABNTEXcitacaorecuo}% recuo de 4 cm da margem esquerda
 \ifthenelse{\equal{\ABNTEXistwocolumn}{true}}{%
-	\setlength{\ABNTEXcitacaorecuo}{1.8cm}
+  \setlength{\ABNTEXcitacaorecuo}{1.8cm}
 }{% else
 \setlength{\ABNTEXcitacaorecuo}{4cm}
 }
 \newenvironment*{citacao}{%
-	\list{}%
-	\footnotesize%
-	\addtolength{\leftskip}{\ABNTEXcitacaorecuo}%
-	\item[]%
-	\begin{SingleSpace}%
-	}{%
+  \list{}%
+  \footnotesize%
+  \addtolength{\leftskip}{\ABNTEXcitacaorecuo}%
+  \item[]%
+  \begin{SingleSpace}%
+  }{%
 \end{SingleSpace}%
 \endlist}%
 % ---
@@ -839,9 +846,9 @@
 \makeatother
 % assinatura com estrela
 \newcommand{\ABNTEXsign}[1]{%
-	\parbox[t]{\ABNTEXsignwidth}{\SingleSpacing\vspace*{\ABNTEXsignskip}\centering%
-		\rule{\ABNTEXsignwidth}{\ABNTEXsignthickness}\\%
-		\nopagebreak #1\par}%
+  \parbox[t]{\ABNTEXsignwidth}{\SingleSpacing\vspace*{\ABNTEXsignskip}\centering%
+    \rule{\ABNTEXsignwidth}{\ABNTEXsignthickness}\\%
+    \nopagebreak #1\par}%
 }
 % assinatura sem estrela
 \newcommand{\ABNTEXcsign}[1]%
@@ -857,118 +864,54 @@
 % ---
 % Impressão da Capa - alterado para os padrões da ufop
 \newcommand{\imprimircapa}{
-	\begin{capa} 
-		
-		\begin{center}
-			\begin{figure}[htp]
-				\centering
-				\ifelsenotempty{\imprimirparceirologo}{
-					\raisebox{-0.5\height}{\includegraphics[height=1.2cm]{\imprimirparceirologo}}
-					\hspace{\fill}
-					\raisebox{-0.5\height}{\includegraphics[height=1.2cm]{logos/logo_itv.png}}
-				}{
-					\hspace{\fill}
-					\raisebox{-0.5\height}{\includegraphics[height=1.2cm]{logos/logo_itv.png}}
-				}
-			\end{figure}
-		\end{center}
-		
-		\vspace*{-1cm}
-		
-		\begin{flushright}
-			\textbf{\footnotesize \ITVtechprodsimple - \imprimirprodtecnica}
-		\end{flushright}
-		
-		\centering
-		\vspace*{1cm}
-		\MakeUppercase{\large\textbf{\itvmainheadertitlename}}\\
-		\vspace*{1cm}
-		\MakeUppercase{\large\textbf{\imprimirtitulo}}\\
-		
-		\ITVmainsubsubtitle\\
-		\imprimiroutrossubtitulos\\
-		\vspace*{\fill} 
-		\begin{flushright}
-			\textbf{\ITVauthorstitle:}\\
-			\imprimirautores
-			\\~\\
-			\checkfor{\autoresexternos}{}{
-				\textbf{\ITVexternalauthorstitle:}\\
-				\autoresexternos
-			}
-		\end{flushright}
+  \begin{capa} 
+    
+    \begin{center}
+      \begin{figure}[htp]
+        \centering
+        \ifelsenotempty{\imprimirparceirologo}{
+          \raisebox{-0.5\height}{\includegraphics[height=1.2cm]{logos/logo_itv_2021.png}}
+          \hspace{\fill}
+          \raisebox{-0.5\height}{\includegraphics[height=1.2cm]{\imprimirparceirologo}}
+        }{
+          \hspace{\fill}
+          \raisebox{-0.5\height}{\includegraphics[height=1.2cm]{logos/logo_itv_2021.png}}
+        }
+      \end{figure}
+    \end{center}
+    
+    \vspace*{-1cm}
+    
+    \begin{flushright}
+      \textbf{\footnotesize \ITVtechprodsimple - \imprimirprodtecnica}
+    \end{flushright}
+    
+    \centering
+    \vspace*{1cm}
+    \MakeUppercase{\large\textbf{\itvmainheadertitlename}}\\
+    \vspace*{1cm}
+    \MakeUppercase{\large\textbf{\imprimirtitulo}}\\
+    
+    \ITVmainsubsubtitle\\
+    \imprimiroutrossubtitulos\\
+    \vspace*{\fill} 
+    \begin{flushright}
+      \textbf{\ITVauthorstitle:}\\
+      \imprimirautores
+      \\~\\
+      \checkfor{\autoresexternos}{}{
+        \textbf{\ITVexternalauthorstitle:}\\
+        \autoresexternos
+      }
+    \end{flushright}
 
-		\vspace*{\fill}    
-		{
-			\ABNTEXchapterfont\Large\textbf\imprimirlocal\\
-			\vspace*{1cm}
-			\imprimirdata
-		}
-		\par
-	\end{capa}
+    \vspace*{\fill}    
+    {
+      \ABNTEXchapterfont\Large\textbf\imprimirlocal\\
+      \vspace*{1cm}
+      \imprimirdata
+    }
+    \par
+  \end{capa}
 }
 % ---
-
-% Impressão da Capa catalografica
-\newcommand{\imprimircatalografica}{
-	\begin{catalografica} 
-		\centering
-		\begin{table}[]
-			\centering
-			\begin{tabular}{|l|c|}
-				\hline
-				\multicolumn{2}{|l|}{\ITVtitlename: \imprimirtitulo} \\ \hline
-				\textbf{\small{\ITVtechprodsimple - \imprimirprodtecnica}}          & \ITVdocumentversion          \\ \cline{1-1}
-				\textbf{\ITVdocumentclassification:} \imprimirclassificacao          & \imprimirrevisao          \\ \hline
-			\end{tabular}
-		\end{table}
-		
-		\ITVadvisoryinformation
-		
-		\vspace*{\fill}
-		
-		\textbf{\ITVinternationalcip}
-		
-		\begin{table}[H]
-			\centering
-			\begin{tabular}{|llr|}
-				\hline
-				&                                   &                                                  \\
-				\imprimirtabelacutter & \multicolumn{2}{l|}{
-					\begin{tabular}[c]{@{}l@{}}
-						\imprimirautores
-						\\~
-						\checkfor{\autoresexternos}{}{
-							\\\autoresexternos
-						}
-					\end{tabular}
-				}
-				\\
-				&                                   &                                                  \\
-				& \multicolumn{2}{l|}{
-					\begin{tabular}[c]{@{}l@{}}
-						\imprimirtitulo
-					\end{tabular}
-				}
-				\\
-				& \multicolumn{2}{l|}{
-					\begin{tabular}[c]{@{}l@{}}
-						\imprimirlocal\\
-						\imprimirdata
-					\end{tabular}
-				}                                                     \\
-				&                                   &                                                  \\
-				&                                   &                                                  \\
-				&                                   &                                                  \\
-				& Keywords:                          &                                                  \\
-				& \multicolumn{2}{l|}{\imprimirpalavraschave}            \\
-				&                                   & \imprimirclassificacaoassunto                         \\ \hline
-			\end{tabular}
-		\end{table}
-		
-	\end{catalografica}
-
-	
-	\clearpage
-	
-}

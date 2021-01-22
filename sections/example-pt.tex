@@ -9,11 +9,27 @@ Citar um acronimo: \ac{DoF}, \ac{FRVF}.
 \label{chap:objetive}
 
 Citação na linha \citeonline{earnshaw2014virtual}.
-Citação singular: \cite{earnshaw2014virtual}. Citação múltipla: \cite{azuma1997survey, earnshaw2014virtual}.
+Citação singular: \cite{earnshaw2014virtual}. Citação múltipla: \cite{azuma1997survey, muller2007documentation}.
 
 \section{Tema a}
 
 \lipsum[1]
+
+Na Tabela~\ref{tab:tabela-autonomia} ...
+
+\begin{table}[htb]
+	\centering
+	\caption{Autonomia de voo.}
+	\label{tab:tabela-autonomia}
+	\begin{tabular}{l|l|l|}
+		\cline{2-3} & Torres 51-50 & Torres 49-50 \\ \hline
+		\multicolumn{1}{|l|}{Tempo de voo}         & 11m54s       & 09m14s       \\ \hline
+		\multicolumn{1}{|l|}{Bateria na decolagem} & 74\%         & 80\%         \\ \hline
+		\multicolumn{1}{|l|}{Bateria no pouso}     & 33\%         & 48\%         \\ \hline
+		\multicolumn{1}{|l|}{Velocidade máxima}    & 12,5 km/h    & 21,3 km/h    \\ \hline
+	\end{tabular}
+	\legend{Fonte: Os autores.}
+\end{table}
 
 \section{Tema b}
 
@@ -35,11 +51,11 @@ Deve conter a descrição da área de estudo e dos materiais (banco de dados, co
 \section{MIT-BIH}
 
 \begin{figure}[htb]
-	\begin{center}  
-		\includegraphics[scale=0.6]{images/haptic.png}
-	\end{center}
 	\caption{Exemplos de batimento. }
-	\legend{Fonte: \cite[p. 13]{yew2017immersive}}
+	\begin{center}  
+		\includegraphics[scale=0.6]{img/examples/haptic.png}
+	\end{center}
+	\legend{Fonte: \cite[p. 13]{steuer1992defining}.}
 	\label{fig_mitbih}
 \end{figure}
 
@@ -63,6 +79,7 @@ Deve conter a descrição da área de estudo e dos materiais (banco de dados, co
 			\cellcolor[HTML]{EFEFEF}Total &                                                                                                                                                        & 89592    & 2590        & 6612       \\ \hline
 		\end{tabular}
 	\end{adjustbox}
+	\legend{Fonte: Os autores.}
 \end{table}
 
 \subsubsection{Sub sub seção}
@@ -81,8 +98,8 @@ w_{ij} = e_{i,j} = \sqrt{(x_i - x_j)^2 + (y_i - y_j)^2 + (z_i - z_j)^2},
 		\State Inicia a população de partículas com velocidades e posições aleatórias
 		\While{Condições de parada não são atingidas}
 		\For{Cada partícula $i$}
-		\State Atualiza a velocidade da partícula de acordo com \ref{eq:1}
-		\State Atualiza a posição da partícula usando \ref{eq:2}
+		\State Atualiza a velocidade da partícula de acordo com \ref{eq:edge}
+		\State Atualiza a posição da partícula usando \ref{eq:edge}
 		\State Avalia o $fitness$  {$f({X}_i)$}
 		\If{$f({X}_i)>f({Pbest}_i)$}
 		\State ${Pbest}_i \gets {X}_i$
@@ -101,6 +118,7 @@ s(v)=\frac{1}{1+\exp(-v)}
 \end{equation}
 
 \begin{figure}[htb]
+	\caption{Comportamento da função sigmóide para valores entre -10 e 10.}
 	\begin{center}  
 		\begin{tikzpicture}
 		\begin{axis}[
@@ -131,7 +149,7 @@ s(v)=\frac{1}{1+\exp(-v)}
 		\end{axis}
 		\end{tikzpicture}
 	\end{center}
-	\caption{Comportamento da função sigmóide para valores entre -10 e 10.}
+	\legend{Fonte: Os autores.}
 	\label{fig_sigmoide}
 \end{figure}
 
