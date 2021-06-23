@@ -376,7 +376,7 @@
 \settocdepth{subsubsection}   %\maxtocdepth{subsubsection}
 
 % FORMATO EXTRA DO SUMARIO
-\renewcommand{\cftchapterfont}{\bfseries}
+\renewcommand{\cftchapterfont}{\bfseries\MakeUppercase}
 \renewcommand{\cftsectionfont}{\MakeUppercase}
 \renewcommand{\cftsubsectionfont}{\bfseries}
 \renewcommand{\cftsubsubsectionfont}{\mdseries}
